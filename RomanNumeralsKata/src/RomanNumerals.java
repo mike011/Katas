@@ -1,29 +1,21 @@
 public class RomanNumerals {
 
+	private static final int[] VALUES = { 9, 5, 4,1 };
+	private static final String[] SYMBOLS = { "IX", "V", "IV","I" };
+
 	public static String roman(int i) {
-		String r = "";
-		while (i > 0) {
-			if (i % 100 == 10) {
-				r = "X" + r;
-				i -= 10;
-			} else if (i % 10 == 9) {
-				r = "IX" + r;
-				i -= 9;
-			} else if (i % 10 == 6) {
-				r = "VI" + r;
-				i -= 6;
-			} else if (i % 10 == 5) {
-				r += "V";
-				i -= 5;
-			} else if (i % 10 == 4) {
-				r += "IV";
-				i -= 4;
-			} else {
-				r += "I";
-				i--;
-			}
+		StringBuilder r = new StringBuilder();
+		for (int a = 0; a < VALUES.length; a++) {
+			i = append(i, VALUES[a], SYMBOLS[a], r);
 		}
-		return r;
+		return r.toString();
 	}
 
+	private static int append(int i, int c, String n, StringBuilder r) {
+		while (i >= c) {
+			r.append(n);
+			i -= c;
+		}
+		return i;
+	}
 }
