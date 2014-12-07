@@ -1,20 +1,23 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Test;
 
+/**
+ * Write tests for 1,2,3,4,6,8,9
+ *
+ */
 public class PrimeFactorsTest {
 
     @Test
-    public void one() {
+    public void one() throws Exception {
         assertEquals(list(), PrimeFactors.generate(1));
     }
 
-    private List<Integer> list(int... ints) {
+    private ArrayList<Integer>list(int... is) {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        for(int i : ints) {
+        for(int i : is) {
             list.add(i);
         }
         return list;
@@ -27,7 +30,7 @@ public class PrimeFactorsTest {
 
     @Test
     public void three() throws Exception {
-        assertEquals(list(3), PrimeFactors.generate(3));
+        assertEquals(list(3), PrimeFactors.generate(3)); 
     }
 
     @Test
